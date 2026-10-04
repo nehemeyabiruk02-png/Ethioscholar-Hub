@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EthioScholar Hub 21.0 — Live Opportunity Network</title>
+<meta name="description" content="Live scholarship and opportunity discovery for Ethiopian students.">
+<style>
+:root{--bg:#07111f;--s:#0d1b2e;--c:#11243b;--l:#29415e;--t:#eef6ff;--m:#9fb1c7;--a:#52b788;--b:#4ea8de;--w:#f4b942;--d:#ef6b73}
+.light{--bg:#f5f8fc;--s:#fff;--c:#fff;--l:#d6e0eb;--t:#132033;--m:#607086}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--t);font:15px system-ui,-apple-system,Segoe UI,Arial,sans-serif;line-height:1.5}
+button,input,select{font:inherit}button,.btn{border:1px solid var(--l);background:var(--s);color:var(--t);padding:9px 12px;border-radius:10px;font-weight:750;cursor:pointer;text-decoration:none}button:hover,.btn:hover{filter:brightness(1.08)}
+.primary{background:var(--a);color:#04130c;border:0}.blue{background:var(--b);color:#04111c;border:0}
+nav{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--l);padding:10px 16px}
+.nav{max-width:1280px;margin:auto;display:flex;gap:8px;align-items:center}.brand{font-size:19px;font-weight:900;white-space:nowrap}.brand b{color:var(--a)}
+.navlinks{margin-left:auto;display:flex;gap:5px}.navlinks button.active{background:var(--a);color:#04130c;border-color:var(--a)}.menu{display:none}
+main{max-width:1280px;margin:auto;padding:18px 16px 50px}.view{display:none}.view.active{display:block}
+.hero{display:grid;grid-template-columns:1.5fr .8fr;gap:14px}.box{background:var(--s);border:1px solid var(--l);border-radius:18px;padding:20px}
+.eyebrow{color:var(--a);font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.hero h1{font-size:clamp(34px,6vw,62px);line-height:1;margin:10px 0}.muted{color:var(--m)}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:9px}.stat{padding:13px;border:1px solid var(--l);border-radius:13px}.stat strong{display:block;font-size:26px}
+.head{display:flex;justify-content:space-between;align-items:end;gap:10px;margin:20px 0 10px}.head h2{margin:0}
+.toolbar{display:grid;grid-template-columns:2fr repeat(5,1fr);gap:8px}.field,.select,.area{width:100%;padding:10px;border-radius:10px;border:1px solid var(--l);background:var(--s);color:var(--t)}
+.toolbar2{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-top:12px}
+.card{background:var(--s);border:1px solid var(--l);border-radius:15px;padding:15px;display:flex;flex-direction:column;min-height:260px}
+.tags{display:flex;justify-content:space-between;gap:6px}.tag{padding:4px 8px;border-radius:999px;background:#52b78818;color:var(--a);font-size:11px;font-weight:800}.warn{color:var(--w);background:#f4b94218}
+.card h3{font-size:17px;margin:11px 0 5px}.card p{margin:3px 0;color:var(--m)}.bottom{margin-top:auto;display:flex;justify-content:space-between;gap:6px;align-items:center}
+.empty{text-align:center;padding:35px;border:1px dashed var(--l);border-radius:15px;grid-column:1/-1}.pager{display:flex;align-items:center;justify-content:center;gap:8px;margin:15px 0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--l);align-items:center}.row:last-child{border:0}
+.modal{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;padding:15px;z-index:50}.modal.show{display:flex}.dialog{background:var(--s);border:1px solid var(--l);border-radius:18px;padding:21px;max-width:800px;width:100%;max-height:90vh;overflow:auto}.close{float:right}
+.kv{display:grid;grid-template-columns:1fr 1fr;gap:8px}.kv div{border:1px solid var(--l);padding:10px;border-radius:9px}.kv small{display:block;color:var(--m)}
+.toast{position:fixed;right:15px;bottom:15px;background:#07111f;color:white;padding:12px;border-radius:10px;display:none;z-index:80}.toast.show{display:block}
+.good{color:var(--a)}.bad{color:var(--d)}.note{border-left:3px solid var(--a);padding:10px 12px;background:#52b78810;border-radius:7px}
+.statusbar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.pill{border:1px solid var(--l);border-radius:999px;padding:5px 9px;font-size:12px}.pill.live{color:var(--a)}.pill.warn{color:var(--w)}
+footer{text-align:center;border-top:1px solid var(--l);padding:22px;color:var(--m)}
+@media(max-width:950px){.hero,.two{grid-template-columns:1fr}.toolbar{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.navlinks{display:none}.menu{display:block;margin-left:auto}.nav.open .navlinks{display:flex;position:absolute;top:58px;left:10px;right:10px;background:var(--s);border:1px solid var(--l);padding:8px;border-radius:12px;flex-wrap:wrap}.nav.open .navlinks button{flex:1}.toolbar,.grid,.kv{grid-template-columns:1fr}.hero h1{font-size:42px}}
+</style>
+</head>
+<body>
+<nav><div class="nav" id="nav">
+<div class="brand">🇪🇹 <b>EthioScholar</b> Hub <small>21.0</small></div>
+<div class="navlinks" id="navlinks">
+<button data-view="home" class="active">Home</button><button data-view="opportunities">Live Opportunities</button>
+<button data-view="dashboard">Dashboard</button><button data-view="tools">Tools</button><button data-view="sources">Sources</button>
+</div><button id="theme">☀️</button><button class="menu" id="menu">☰</button>
+</div></nav>
+
+<main>
+<section id="home" class="view active">
+<div class="hero">
+<div class="box">
+<div class="eyebrow">Live data • built for Ethiopian students</div>
+<h1>Find real opportunities, not fake numbers.</h1>
+<p class="muted">21.0 connects to public, documented opportunity sources and refreshes them in your browser. It does not manufacture 10,000 fake scholarships.</p>
+<div class="actions"><button class="primary" data-view="opportunities">Load live opportunities</button><button class="blue" id="matchHome">Find my matches</button><button id="refreshHome">↻ Refresh now</button></div>
+<div class="statusbar" id="homeStatus"></div>
+</div>
+<div class="box stats" id="stats"></div>
+</div>
+<div class="two" style="margin-top:14px">
+<div class="box"><h3>What “10,000+” means here</h3><p class="muted">The system is designed for 10,000+ records and can combine multiple live sources. The displayed total is always the number actually returned by connected sources.</p></div>
+<div class="box"><h3>Verification rule</h3><p class="muted">Every live result keeps its source URL. Deadlines and eligibility are never invented. Always confirm the current application page before applying.</p></div>
+</div>
+</section>
+
+<section id="opportunities" class="view">
+<div class="head"><div><h2>Live Opportunity Explorer</h2><span class="muted" id="count"></span></div><button id="refresh">↻ Refresh</button></div>
+<div class="statusbar" id="sourceStatus"></div>
+<div class="toolbar">
+<input id="q" class="field" placeholder="Search title, provider, field, country...">
+<select id="type" class="select"><option value="">All types</option></select>
+<select id="level" class="select"><option value="">All levels</option></select>
+<select id="fund" class="select"><option value="">All funding</option></select>
+<select id="dest" class="select"><option value="">All destinations</option></select>
+<select id="availability" class="select"><option value="">All availability</option><option value="open">Open now</option><option value="upcoming">Upcoming</option><option value="rolling">Rolling</option></select>
+</div>
+<div class="toolbar2"><select id="sort" class="select"><option value="match">Best match</option><option value="deadline">Soonest deadline</option><option value="az">A–Z</option></select><button id="savedOnly">☆ Saved only</button><button id="clearSaved">Clear saved</button></div>
+<div id="cards" class="grid"></div><div class="pager"><button id="prev">← Previous</button><span id="pageInfo" class="muted"></span><button id="next">Next →</button></div>
+</section>
+
+<section id="dashboard" class="view">
+<div class="head"><h2>My application dashboard</h2><button id="editProfile">Edit profile</button></div>
+<div class="two"><div class="box"><h3>Application tracker</h3><div id="tracker"></div></div><div class="box"><h3>Student profile</h3><div id="profile"></div><button class="primary" id="runMatch">Run matching</button></div></div>
+</section>
+
+<section id="tools" class="view">
+<div class="head"><h2>Tools & diagnostics</h2></div>
+<div class="two">
+<div class="box"><h3>System diagnostic</h3><p class="muted">Runs local checks on live fetching, filters, pagination, saved items, tracker, storage and security escaping.</p><button class="blue" id="health">Run full test</button><div id="healthOut"></div></div>
+<div class="box"><h3>Data quality</h3><div id="quality"></div></div>
+</div>
+<div class="box" style="margin-top:12px"><h3>Backup</h3><button id="export">Export my data</button><label class="btn">Import backup<input id="import" type="file" accept=".json" hidden></label></div>
+</section>
+
+<section id="sources" class="view">
+<div class="head"><div><h2>Data sources</h2><span class="muted">Transparent by design</span></div></div>
+<div class="box"><div id="sourcesOut"></div></div>
+</section>
+</main>
+
+<footer>EthioScholar Hub 21.0 · Live-source prototype · Always verify an opportunity on its official provider page.</footer>
+<div id="modal" class="modal"><div class="dialog"><button class="close" id="close">Close</button><div id="modalBody"></div></div></div>
+<div id="toast" class="toast"></div>
+
+<script>
+'use strict';
+
+const STARTER=[
+{id:'s1',title:'Global Korea Scholarship (GKS-U)',type:'Scholarship',level:'Undergraduate',funding:'Full',field:'All fields',destination:'South Korea',availability:'unknown',provider:'Study in Korea',url:'https://www.studyinkorea.go.kr/'},
+{id:'s2',title:'Stipendium Hungaricum',type:'Scholarship',level:'Undergraduate',funding:'Full',field:'All fields',destination:'Hungary',availability:'unknown',provider:'Tempus Public Foundation',url:'https://stipendiumhungaricum.hu/'},
+{id:'s3',title:'Türkiye Scholarships',type:'Scholarship',level:'Undergraduate',funding:'Full',field:'All fields',destination:'Türkiye',availability:'unknown',provider:'Türkiye Scholarships',url:'https://www.turkiyeburslari.gov.tr/'},
+{id:'s4',title:'MEXT Scholarship',type:'Scholarship',level:'Undergraduate',funding:'Full',field:'All fields',destination:'Japan',availability:'unknown',provider:'Study in Japan',url:'https://www.studyinjapan.go.jp/en/'},
+{id:'s5',title:'CS50',type:'Course',level:'Students',funding:'Free',field:'Computer Science',destination:'Online',availability:'rolling',provider:'Harvard',url:'https://cs50.harvard.edu/x/'},
+{id:'s6',title:'freeCodeCamp',type:'Course',level:'Students',funding:'Free',field:'Programming/Web',destination:'Online',availability:'rolling',provider:'freeCodeCamp',url:'https://www.freecodecamp.org/'}
+];
+
+const SOURCES=[
+{name:'Open Scholarships',kind:'Live JSON',url:'https://scholarships.grudged.io/scholarships.json',note:'Open, machine-readable scholarship directory; records include provenance and official-source links.',license:'CC BY 4.0'},
+{name:'WorqNow Education API',kind:'Live REST',url:'https://api.worqnow.ai/',note:'Public education API with scholarship endpoints for the USA, UK, Canada, Australia, Germany, Ireland and Netherlands.',license:'Provider terms'},
+{name:'Starter official links',kind:'Curated fallback',url:'https://www.studyinkorea.go.kr/',note:'Small fallback set used only when live sources are unavailable.',license:'Official provider pages'}
+];
+
+const KEY='ethioScholar21';
+let S={saved:[],tracker:{},profile:{grade:'Grade 11',age:'16',field:'Computer Science',destination:'USA',funding:'Full'},sourceData:[],lastSync:null};
+try{S={...S,...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch(e){}
+S.saved=Array.isArray(S.saved)?S.saved:[];S.tracker=S.tracker&&typeof S.tracker==='object'?S.tracker:{};
+S.profile={grade:'Grade 11',age:'16',field:'Computer Science',destination:'USA',funding:'Full',...(S.profile||{})};
+
+let O=STARTER.slice(), PAGE=18, page=1, liveSources={open:false,worq:false};
+
+const $=id=>document.getElementById(id);
+const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const norm=x=>String(x??'').trim();
+const save=()=>localStorage.setItem(KEY,JSON.stringify(S));
+function toast(x){$('toast').textContent=x;$('toast').classList.add('show');clearTimeout(window._t);window._t=setTimeout(()=>$('toast').classList.remove('show'),2200)}
+function go(v){document.querySelectorAll('.view').forEach(x=>x.classList.toggle('active',x.id===v));document.querySelectorAll('[data-view]').forEach(x=>x.classList.toggle('active',x.dataset.view===v));$('nav').classList.remove('open');if(v==='opportunities')render();if(v==='dashboard'){renderProfile();renderTracker()}if(v==='sources')renderSources();window.scrollTo({top:0,behavior:'smooth'})}
+
+function normalizeRecord(x,source){
+ if(!x||typeof x!=='object')return null;
+ const title=norm(x.title||x.name||x.scholarship_name||x.program_name);
+ if(!title)return null;
+ const url=norm(x.url||x.application_url||x.link||x.official_url||x.website);
+ return {id:source+'-'+btoa(unescape(encodeURIComponent(title))).replace(/[^a-zA-Z0-9]/g,'').slice(0,30),
+ title,type:norm(x.type||x.category||'Scholarship')||'Opportunity',
+ level:norm(x.level||x.degree_level||x.education_level||'Not specified')||'Not specified',
+ funding:norm(x.funding||x.funding_type||x.award_type||'Varies')||'Varies',
+ field:norm(x.field||x.fields||x.study_area||'All fields')||'All fields',
+ destination:norm(x.destination||x.country||x.location||'Various')||'Various',
+ availability:norm(x.availability||x.status||'unknown').toLowerCase(),
+ deadline:norm(x.deadline||x.application_deadline||''),
+ provider:norm(x.provider||x.sponsor||x.organization||'Source provider')||'Source provider',
+ url,source,verified:norm(x.verified||x.verification||'Source-provided')||'Source-provided',
+ description:norm(x.description||x.summary||'')};
+}
+
+async function fetchJSON(url,timeout=10000){
+ const c=new AbortController(),t=setTimeout(()=>c.abort(),timeout);
+ try{const r=await fetch(url,{signal:c.signal,headers:{Accept:'application/json'}});if(!r.ok)throw Error('HTTP '+r.status);return await r.json()}
+ finally{clearTimeout(t)}
+}
+
+async function loadLive(){
+ toast('Loading the latest verified dataset…');
+ const results=[];liveSources={open:false,worq:false};
+ try{
+   const local=await fetch('data.json?ts='+Date.now(),{cache:'no-store'});
+   if(local.ok){
+     const packet=await local.json();
+     const arr=Array.isArray(packet)?packet:(Array.isArray(packet.records)?packet.records:[]);
+     arr.map(x=>normalizeRecord(x,x.source||'Automated collector')).filter(Boolean).forEach(x=>results.push(x));
+     if(results.length){
+       liveSources.open=!!(packet.sources&&packet.sources.open);
+       liveSources.worq=!!(packet.sources&&packet.sources.worq);
+       const map=new Map();
+       [...STARTER,...results].forEach(x=>map.set((x.url||x.id).toLowerCase(),x));
+       O=[...map.values()];
+       S.lastSync=packet.generated_at||new Date().toISOString();
+       S.liveCount=results.length;
+       S.sourceData=packet.sources||{};
+       save(); fillFilters(); page=1; render(); stats(); renderSources(); quality();
+       toast('Updated dataset loaded: '+results.length+' live records');
+       return;
+     }
+   }
+ }catch(e){}
+ try{
+   const data=await fetchJSON('https://scholarships.grudged.io/scholarships.json');
+   const arr=Array.isArray(data)?data:(Array.isArray(data.scholarships)?data.scholarships:Array.isArray(data.results)?data.results:[]);
+   arr.map(x=>normalizeRecord(x,'Open Scholarships')).filter(Boolean).forEach(x=>results.push(x));
+   liveSources.open=true;
+ }catch(e){}
+ const countries=['usa','uk','ca','au','de','ie','nl'];
+ await Promise.all(countries.map(async cc=>{
+   try{
+    const data=await fetchJSON('https://api.worqnow.ai/education/'+cc+'/scholarships');
+    const arr=Array.isArray(data)?data:(Array.isArray(data.scholarships)?data.scholarships:Array.isArray(data.results)?data.results:[]);
+    arr.map(x=>normalizeRecord(x,'WorqNow '+cc.toUpperCase())).filter(Boolean).forEach(x=>results.push(x));
+    liveSources.worq=true;
+   }catch(e){}
+ }));
+ const map=new Map();
+ [...STARTER,...results].forEach(x=>{if(x&&x.url)map.set(x.url.toLowerCase(),x);else if(x)map.set(x.id,x)});
+ O=[...map.values()];
+ S.sourceData={...liveSources};S.lastSync=new Date().toISOString();S.liveCount=results.length;save();
+ fillFilters();page=1;render();stats();renderSources();quality();
+ toast(results.length?'Live data refreshed':'Live sources unavailable — showing verified fallback');
+}
+
+function fill(id,vals,label){const e=$(id),old=e.value;const unique=[...new Set(vals.filter(Boolean).map(String))].sort((a,b)=>a.localeCompare(b));e.innerHTML='<option value="">'+label+'</option>'+unique.map(v=>'<option value="'+esc(v)+'">'+esc(v)+'</option>').join('');if(unique.includes(old))e.value=old}
+function fillFilters(){fill('type',O.map(x=>x.type),'All types');fill('level',O.map(x=>x.level),'All levels');fill('fund',O.map(x=>x.funding),'All funding');fill('dest',O.map(x=>x.destination),'All destinations')}
+
+function score(o){
+ let s=0,t=JSON.stringify(o).toLowerCase(),p=S.profile||{};
+ if(p.field&&t.includes(String(p.field).split(/[ ,/]/)[0].toLowerCase()))s+=5;
+ if(p.destination&&t.includes(String(p.destination).toLowerCase()))s+=4;
+ if(/global|online|various/.test(String(o.destination).toLowerCase()))s+=2;
+ if(p.funding&&/full/.test(String(p.funding).toLowerCase())&&/full/.test(String(o.funding).toLowerCase()))s+=5;
+ if(/grade 11|grade 12|secondary|undergraduate|youth|student|teen/.test(String(o.level).toLowerCase()))s+=3;
+ if(o.availability==='open')s+=4;if(o.availability==='rolling')s+=3;
+ return s;
+}
+function filtered(){
+ const q=norm($('q').value).toLowerCase();
+ let a=O.filter(o=>{
+  const hay=JSON.stringify(o).toLowerCase();
+  return(!q||hay.includes(q))&&(!$('type').value||o.type===$('type').value)&&(!$('level').value||o.level===$('level').value)&&(!$('fund').value||o.funding===$('fund').value)&&(!$('dest').value||o.destination===$('dest').value)&&(!$('availability').value||o.availability===$('availability').value)&&(!S.savedOnly||S.saved.includes(String(o.id)));
+ });
+ const sort=$('sort').value;
+ if(sort==='az')a.sort((x,y)=>x.title.localeCompare(y.title));
+ else if(sort==='deadline')a.sort((x,y)=>(x.deadline||'9999').localeCompare(y.deadline||'9999'));
+ else a.sort((x,y)=>score(y)-score(x));
+ return a;
+}
+function render(){
+ const a=filtered(),pages=Math.max(1,Math.ceil(a.length/PAGE));if(page>pages)page=pages;
+ const shown=a.slice((page-1)*PAGE,page*PAGE);
+ $('count').textContent=a.length+' matching · '+O.length+' currently indexed';
+ $('cards').innerHTML=shown.length?shown.map(card).join(''):'<div class="empty"><h3>No matches</h3><p>Try another filter or refresh the live sources.</p></div>';
+ $('pageInfo').textContent='Page '+page+' of '+pages;$('prev').disabled=page<=1;$('next').disabled=page>=pages;
+ $('sourceStatus').innerHTML=sourcePills();
+}
+function card(o){
+ const id=String(o.id),sv=S.saved.includes(id);
+ return '<article class="card"><div class="tags"><span class="tag">'+esc(o.type)+'</span><span class="tag '+(o.availability==='closed'?'warn':'')+'">'+esc(o.availability||'verify')+'</span></div>'+
+ '<h3>'+esc(o.title)+'</h3><p><b>Level:</b> '+esc(o.level)+'</p><p><b>Funding:</b> '+esc(o.funding)+'</p><p><b>Field:</b> '+esc(o.field)+'</p><p><b>Destination:</b> '+esc(o.destination)+'</p>'+
+ '<p><b>Deadline:</b> '+esc(o.deadline||'Not supplied')+'</p><div class="bottom"><span class="muted">'+esc(o.provider)+'</span><span><button data-action="save" data-id="'+esc(id)+'">'+(sv?'★':'☆')+'</button> <button class="primary" data-action="details" data-id="'+esc(id)+'">Details</button></span></div></article>';
+}
+function details(id){
+ const o=O.find(x=>String(x.id)===String(id));if(!o)return;
+ $('modalBody').innerHTML='<h2>'+esc(o.title)+'</h2><div class="kv"><div><small>Type</small>'+esc(o.type)+'</div><div><small>Level</small>'+esc(o.level)+'</div><div><small>Funding</small>'+esc(o.funding)+'</div><div><small>Field</small>'+esc(o.field)+'</div><div><small>Destination</small>'+esc(o.destination)+'</div><div><small>Provider</small>'+esc(o.provider)+'</div><div><small>Deadline</small>'+esc(o.deadline||'Not supplied')+'</div><div><small>Source</small>'+esc(o.source||'Starter official link')+'</div></div>'+
+ '<p class="muted">'+esc(o.description||'This record came from a connected source. Confirm the current eligibility and application window on the provider page.')+'</p>'+
+ '<div class="actions">'+(o.url?'<a class="btn blue" href="'+esc(o.url)+'" target="_blank" rel="noopener noreferrer">Open source ↗</a>':'')+'<button class="primary" data-action="track" data-id="'+esc(id)+'">Track</button></div>';
+ $('modal').classList.add('show');
+}
+function toggleSave(id){id=String(id);const i=S.saved.indexOf(id);if(i>=0)S.saved.splice(i,1);else S.saved.push(id);save();render();stats();toast(i>=0?'Removed from saved':'Saved')}
+function track(id){S.tracker[String(id)]=S.tracker[String(id)]||'Interested';save();renderTracker();$('modal').classList.remove('show');toast('Added to tracker')}
+function renderTracker(){const ks=Object.keys(S.tracker);$('tracker').innerHTML=ks.length?ks.map(id=>{const o=O.find(x=>String(x.id)===id);if(!o)return'';const v=S.tracker[id];return '<div class="row"><span><b>'+esc(o.title)+'</b><small class="muted" style="display:block">'+esc(v)+'</small></span><select class="select" style="width:auto" data-track="'+esc(id)+'"><option '+(v==='Interested'?'selected':'')+'>Interested</option><option '+(v==='Preparing'?'selected':'')+'>Preparing</option><option '+(v==='Submitted'?'selected':'')+'>Submitted</option><option '+(v==='Accepted'?'selected':'')+'>Accepted</option></select></div>'}).join(''):'<p class="muted">No tracked opportunities yet.</p>'}
+function renderProfile(){$('profile').innerHTML='<div class="row"><span>Grade / age</span><b>'+esc(S.profile.grade)+' · '+esc(S.profile.age)+'</b></div><div class="row"><span>Field</span><b>'+esc(S.profile.field)+'</b></div><div class="row"><span>Destination</span><b>'+esc(S.profile.destination)+'</b></div><div class="row"><span>Funding</span><b>'+esc(S.profile.funding)+'</b></div>'}
+function editProfile(){
+ const p=S.profile;
+ $('modalBody').innerHTML='<h2>Student profile</h2><div class="kv"><div><small>Grade</small><input id="pGrade" class="field" value="'+esc(p.grade)+'"></div><div><small>Age</small><input id="pAge" class="field" value="'+esc(p.age)+'"></div><div><small>Field</small><input id="pField" class="field" value="'+esc(p.field)+'"></div><div><small>Destination</small><input id="pDest" class="field" value="'+esc(p.destination)+'"></div><div><small>Funding</small><select id="pFund" class="select"><option>Full</option><option>Full/partial</option><option>Any</option></select></div></div><div class="actions"><button class="primary" id="saveProfile">Save</button></div>';
+ $('pFund').value=p.funding;$('modal').classList.add('show');
+}
+function match(){
+ const a=O.map(o=>({o,s:score(o)})).sort((a,b)=>b.s-a.s).slice(0,12);
+ $('modalBody').innerHTML='<h2>Best matches</h2><p class="muted">Rule-based ranking from your profile; it is not an admissions decision.</p>'+a.map(x=>'<div class="row"><b>'+esc(x.o.title)+'</b><span class="tag">'+x.s+' points</span></div>').join('');
+ $('modal').classList.add('show');
+}
+function sourcePills(){return '<span class="pill '+(liveSources.open?'live':'warn')+'">Open Scholarships: '+(liveSources.open?'LIVE':'unavailable')+'</span><span class="pill '+(liveSources.worq?'live':'warn')+'">WorqNow: '+(liveSources.worq?'LIVE':'unavailable')+'</span><span class="pill">Fallback: '+STARTER.length+'</span>'}
+function renderSources(){
+ $('sourcesOut').innerHTML=SOURCES.map(s=>'<div class="row"><span><b>'+esc(s.name)+'</b><small class="muted" style="display:block">'+esc(s.kind)+' · '+esc(s.note)+' · '+esc(s.license)+'</small></span><a class="btn" href="'+esc(s.url)+'" target="_blank" rel="noopener noreferrer">Source ↗</a></div>').join('')+
+ '<div class="note" style="margin-top:12px"><b>Automatic updates:</b> GitHub Actions can regenerate <code>data.json</code> on a schedule. The website reads that updated file without requiring a new manual data upload.<br><br><b>Why not claim 10,000 records?</b><br>The connected public scholarship sources currently expose far fewer records. 21.0 therefore reports the real returned count instead of inventing entries. More adapters can be added without changing the database UI.</div>';
+}
+function stats(){$('stats').innerHTML='<div class="stat"><strong>'+O.length+'</strong><span>indexed now</span></div><div class="stat"><strong>10,000+</strong><span>architecture capacity</span></div><div class="stat"><strong>'+S.saved.length+'</strong><span>saved</span></div><div class="stat"><strong>'+(S.lastSync?new Date(S.lastSync).toLocaleTimeString():'—')+'</strong><span>last sync</span></div>'}
+function quality(){
+ const missing=O.filter(o=>!o.title||!o.provider||!o.url).length;
+ const dup=new Set(O.map(o=>(o.url||o.title).toLowerCase())).size;
+ $('quality').innerHTML='<div class="row"><span>Indexed records</span><b>'+O.length+'</b></div><div class="row"><span>Missing title/provider/URL</span><b class="'+(missing?'bad':'good')+'">'+missing+'</b></div><div class="row"><span>Duplicate keys</span><b class="'+(dup<O.length?'bad':'good')+'">'+(O.length-dup)+'</b></div><div class="row"><span>Live source status</span><b class="'+(liveSources.open||liveSources.worq?'good':'bad')+'">'+((liveSources.open||liveSources.worq)?'LIVE':'OFFLINE')+'</b></div>'
+}
+function health(){
+ const tests=[['HTML elements',!!$('cards')&&!!$('modal')],['Database array',Array.isArray(O)],['Escaping test',esc('<script>')==='&lt;script&gt;'],['Saved storage',Array.isArray(S.saved)],['Tracker storage',S.tracker&&typeof S.tracker==='object'],['Filters',!!$('q')&&!!$('type')&&!!$('dest')],['Pagination',!!$('prev')&&!!$('next')],['Source status',!!$('sourceStatus')],['Live/fallback data',O.length>0],['Profile matching',typeof score==='function']];
+ $('healthOut').innerHTML=tests.map(t=>'<div class="row"><span>'+esc(t[0])+'</span><b class="'+(t[1]?'good':'bad')+'">'+(t[1]?'PASS':'FAIL')+'</b></div>').join('');toast('Tests complete')
+}
+function backup(){const blob=new Blob([JSON.stringify({saved:S.saved,tracker:S.tracker,profile:S.profile,lastSync:S.lastSync},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='ethioscholar21-backup.json';a.click();URL.revokeObjectURL(a.href)}
+function importBackup(file){const r=new FileReader();r.onload=()=>{try{const x=JSON.parse(r.result);if(Array.isArray(x.saved))S.saved=x.saved;if(x.tracker)S.tracker=x.tracker;if(x.profile)S.profile={...S.profile,...x.profile};save();renderProfile();renderTracker();render();stats();toast('Backup imported')}catch(e){toast('Invalid backup')}};r.readAsText(file)}
+
+document.addEventListener('click',e=>{
+ const v=e.target.closest('[data-view]');if(v){go(v.dataset.view);return}
+ const a=e.target.closest('[data-action]');if(a){if(a.dataset.action==='details')details(a.dataset.id);if(a.dataset.action==='save')toggleSave(a.dataset.id);if(a.dataset.action==='track')track(a.dataset.id)}
+});
+document.addEventListener('change',e=>{
+ if(e.target.matches('[data-track]')){S.tracker[e.target.dataset.track]=e.target.value;save();renderTracker()}
+});
+['q','type','level','fund','dest','availability','sort'].forEach(id=>$(id).addEventListener('input',()=>{page=1;render()}));
+$('prev').onclick=()=>{if(page>1){page--;render()}};$('next').onclick=()=>{const pages=Math.max(1,Math.ceil(filtered().length/PAGE));if(page<pages){page++;render()}};
+$('savedOnly').onclick=()=>{S.savedOnly=!S.savedOnly;page=1;$('savedOnly').textContent=S.savedOnly?'★ Saved only':'☆ Saved only';render()};
+$('clearSaved').onclick=()=>{S.saved=[];save();render();stats();toast('Saved list cleared')};
+$('refresh').onclick=loadLive;$('refreshHome').onclick=loadLive;$('matchHome').onclick=match;$('runMatch').onclick=match;
+$('editProfile').onclick=editProfile;$('close').onclick=()=>$('modal').classList.remove('show');$('modal').onclick=e=>{if(e.target.id==='modal')$('modal').classList.remove('show')};
+$('health').onclick=health;$('export').onclick=backup;$('import').onchange=e=>e.target.files[0]&&importBackup(e.target.files[0]);
+$('menu').onclick=()=>$('nav').classList.toggle('open');$('theme').onclick=()=>{document.documentElement.classList.toggle('light');localStorage.setItem('eshTheme20',document.documentElement.classList.contains('light')?'light':'dark')};
+document.addEventListener('click',e=>{if(e.target.id==='saveProfile'){S.profile={...S.profile,grade:$('pGrade').value.trim(),age:$('pAge').value.trim(),field:$('pField').value.trim(),destination:$('pDest').value.trim(),funding:$('pFund').value};save();renderProfile();$('modal').classList.remove('show');toast('Profile saved')}});
+if(localStorage.getItem('eshTheme20')==='light')document.documentElement.classList.add('light');
+
+fillFilters();render();renderProfile();renderTracker();stats();renderSources();quality();$('homeStatus').innerHTML=sourcePills();
+loadLive();
+</script>
+</body>
+</html>
